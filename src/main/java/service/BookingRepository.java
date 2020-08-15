@@ -4,7 +4,7 @@ import java.util.List;
 import model.Order;
 
 public class BookingRepository {
-  public void add(List<Order> orders) {
-
+  public boolean add(List<Order> orders) {
+    return  false;
   }
 }
