@@ -7,7 +7,13 @@ import java.util.List;
 
 @Service
 public class BookingService {
-    public void book(List<Order> orders) {
+    private final BookingRepository bookingRepository;
 
+    public BookingService(BookingRepository bookingRepository) {
+        this.bookingRepository = bookingRepository;
+    }
+
+    public void book(List<Order> orders) {
+        bookingRepository.add(orders);
     }
 }
