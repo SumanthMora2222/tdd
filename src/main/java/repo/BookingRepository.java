@@ -1,4 +1,4 @@
-package service;
+package repo;
 
 import java.util.List;
 import model.Order;

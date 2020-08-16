@@ -11,6 +11,7 @@ import java.util.List;
 import model.Order;
 import org.junit.Before;
 import org.junit.Test;
+import repo.BookingRepository;
 
 public class BookingServiceTest {
 
