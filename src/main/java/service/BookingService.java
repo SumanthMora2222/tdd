@@ -1,5 +1,6 @@
 package service;
 
+import java.util.stream.Collectors;
 import model.Order;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,10 @@ public class BookingService {
     }
 
     public void book(List<Order> orders) {
-        if(bookingRepository.add(orders)){
-            bookingPublisher.publish(orders);
+        final List<Order> successfulOrders = orders.stream()
+          .filter(order -> order.getStatus().equals("SUCCESS")).collect(Collectors.toList());
+        if(!successfulOrders.isEmpty()) {
+            bookingPublisher.publish(successfulOrders);
         }
     }
 }
