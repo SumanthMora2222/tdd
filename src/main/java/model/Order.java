@@ -6,10 +6,10 @@ import lombok.EqualsAndHashCode;
 import javax.validation.constraints.NotEmpty;
 
 @Data
-@EqualsAndHashCode
 public class Order {
     @NotEmpty
     private String salesOrderId;
+    @NotEmpty
     private String customerId;
     private String status;
     private String timeStamp;

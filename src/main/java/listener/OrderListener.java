@@ -10,9 +10,12 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 import service.BookingService;
 
 public class OrderListener {
@@ -25,26 +28,24 @@ public class OrderListener {
         this.bookingService = bookingService;
     }
 
-    public void process(String message) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        Order[] orders = new Order[0];
-        try {
-            orders = objectMapper.readValue(message, Order[].class);
-        } catch (JsonProcessingException e) {
+    public void process(List<Order> orders) {
+        if (orders.isEmpty()) {
             throw new InvalidOrderException();
         }
-        if (validateOrders(Arrays.asList(orders))) {
-            bookingService.book(Arrays.asList(orders));
-        } else {
-            throw new InvalidOrderException();
+
+        List<Order> validOrders = orders.stream()
+                .filter(order -> !isFutureTime(order.getTimeStamp()))
+                .collect(Collectors.toList());
+
+        if (!validOrders.isEmpty()) {
+            bookingService.book(validOrders);
         }
+
+        //exception test
 
     }
 
-    private boolean validateOrders(List<Order> orders) {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
-        Set<ConstraintViolation<Order>> constraintViolationsErrors = validator.validate(orders.get(0));
-        return constraintViolationsErrors.isEmpty();
+    private boolean isFutureTime(String timeStamp) {
+        return LocalDateTime.parse(timeStamp).isAfter(LocalDateTime.now());
     }
 }
