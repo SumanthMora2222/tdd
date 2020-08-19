@@ -1,7 +1,7 @@
-package repo;
+package one.repo;
 
 import java.util.List;
-import model.Order;
+import one.model.Order;
 
 public class BookingRepository {
   public boolean add(List<Order> orders) {

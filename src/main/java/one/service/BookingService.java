@@ -1,10 +1,10 @@
-package service;
+package one.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import model.Order;
+import one.model.Order;
 import org.springframework.stereotype.Service;
-import repo.BookingRepository;
+import one.repo.BookingRepository;
 
 @Service
 public class BookingService {

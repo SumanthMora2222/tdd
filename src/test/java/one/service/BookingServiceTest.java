@@ -1,4 +1,4 @@
-package service;
+package one.service;
 
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.mock;
@@ -8,10 +8,10 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
-import model.Order;
+import one.model.Order;
 import org.junit.Before;
 import org.junit.Test;
-import repo.BookingRepository;
+import one.repo.BookingRepository;
 
 public class BookingServiceTest {
 

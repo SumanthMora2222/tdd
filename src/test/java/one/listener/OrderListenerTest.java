@@ -1,19 +1,17 @@
-package listener;
+package one.listener;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import exceptions.InvalidOrderException;
-import model.Order;
+import one.exceptions.InvalidOrderException;
+import one.model.Order;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
-import service.BookingService;
+import one.service.BookingService;
 
 
 import static org.mockito.ArgumentMatchers.anyList;

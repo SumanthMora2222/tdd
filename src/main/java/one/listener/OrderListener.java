@@ -1,22 +1,14 @@
-package listener;
+package one.listener;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import exceptions.InvalidOrderException;
-import model.Order;
+import one.exceptions.InvalidOrderException;
+import one.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
-import service.BookingService;
+import one.service.BookingService;
 
 public class OrderListener {
 

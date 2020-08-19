@@ -1,4 +1,4 @@
-package exceptions;
+package one.exceptions;
 
 public class InvalidOrderException extends RuntimeException {
     public InvalidOrderException() {

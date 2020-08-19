@@ -1,7 +1,7 @@
-package service;
+package one.service;
 
 import java.util.List;
-import model.Order;
+import one.model.Order;
 
 public class BookingPublisher {
   public void publish(List<Order> orders) {
