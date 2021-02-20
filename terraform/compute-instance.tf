@@ -18,9 +18,6 @@ resource "google_compute_instance" "sumanth_instance" {
   }
   network_interface {
     subnetwork = google_compute_subnetwork.sumanth_network-with-private-secondary-ip-ranges.self_link
-    access_config {
-      nat_ip = google_compute_address.sumanth_static.address
-    }
   }
   service_account {
     email  = google_service_account.sumanth_service_account.email
